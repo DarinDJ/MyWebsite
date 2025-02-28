@@ -18,7 +18,7 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I am just a kid who is excited and keen to learn and develop new things in the software world...
+              I am just a young individual who is excited and keen to learn and develop new things in the software world...
               <br />
               <br />I am fluent in languages like
               <i>
@@ -36,12 +36,12 @@ function Home2() {
               </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for gaining insights from raw data
-              with <b className="purple">Python</b> and
+              Whenever possible, I apply my passion for gaining insights from raw data
+              using <b className="purple">Python</b> and
               <i>
                 <b className="purple">
                   {" "}
-                  Modern Business Intellegence Tools
+                  Modern Business Intelligence Tools
                 </b>
               </i>
               &nbsp; like
