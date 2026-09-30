@@ -27,20 +27,6 @@ function sizeCanvas(c, w, h) {
 }
 const accRGBA = a => `rgba(${acc[0] | 0},${acc[1] | 0},${acc[2] | 0},${a})`;
 
-/* ---------- boot sequence ---------- */
-function boot() {
-  const el = $('#boot'), out = $('#bootText');
-  const lines = ['> attaching electrodes........ ok', '> calibrating signal.......... ok',
-    '> subject: darin davis johnson', '> status: student researcher, KIST', '> tuning in…'];
-  let closed = false;
-  const close = () => { if (closed) return; closed = true; el.classList.add('done'); start(); };
-  let seen = false; try { seen = sessionStorage.getItem('booted'); sessionStorage.setItem('booted', '1'); } catch (e) {}
-  if (reduced || seen || /[?&]intro=0/.test(location.search)) { el.classList.add('done'); closed = true; start(); return; }
-  let i = 0;
-  (function next() { if (closed) return; if (i < lines.length) { out.textContent += lines[i++] + '\n'; setTimeout(next, 280); } else setTimeout(close, 450); })();
-  ['click', 'keydown', 'touchstart'].forEach(e => addEventListener(e, close, { once: true }));
-}
-
 let started = false;
 function start() {
   if (started) return; started = true;
@@ -55,9 +41,12 @@ $('#timeline').innerHTML = DATA.timeline.map(t =>
   `<li><span class="when">${t.when}</span><h3>${t.title}</h3><p>${t.text}</p></li>`).join('');
 $('#cards').innerHTML = DATA.projects.map((p, i) => {
   const tag = p.link ? 'a' : 'div', href = p.link ? ` href="${p.link}" target="_blank" rel="noopener"` : '';
-  return `<${tag} class="card rv"${href}><span class="tag">${p.tag}</span>${p.link ? '<span class="go">↗</span>' : ''}<h3>${p.title}</h3><p>${p.text}</p>${spark(p.title)}</${tag}>`;
+  return `<${tag} class="card rv"${href}><span class="tag">${p.tag}</span>${p.link ? '<span class="go">↗</span>' : ''}<h3>${p.title}</h3><p>${p.text}</p>${p.stack.length ? `<ul class="stack">${p.stack.map(t => `<li>${t}</li>`).join('')}</ul>` : ''}${spark(p.title)}</${tag}>`;
 }).join('');
-$('#links').innerHTML = DATA.links.map(l => `<a href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+$('#links').innerHTML = DATA.links.map(l => `<a class="btn${l.primary ? ' primary' : ''}" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join('');
+$('#principles').innerHTML = DATA.principles.map(p => `<div class="pr rv"><b>${p.n}</b><h3>${p.title}</h3><p>${p.text}</p></div>`).join('');
+$('#skillList').innerHTML = Object.entries(DATA.skills).map(([g, l]) => `<div><h3>${g}</h3><p>${l.join(' · ')}</p></div>`).join('');
+['#resumeTop', '#resumeHero'].forEach(id => { $(id).href = DATA.resume; });
 $('#year').textContent = new Date().getFullYear();
 
 function spark(seed) { // deterministic "EEG" squiggle per project
@@ -134,18 +123,24 @@ function bgLoop(now) {
   requestAnimationFrame(bgLoop);
 }
 requestAnimationFrame(bgLoop);
-setInterval(() => { $('#roClock').textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Seoul' }); }, 1000);
+setInterval(() => { $('#roClock').textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit' }); }, 1000);
 
 /* ---------- section tracking -> band ---------- */
-const navLinks = $$('#dial a');
+const navLinks = $$('#topnav a');
 const secObs = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   const k = e.target.dataset.band; band = BANDS[k];
-  $('#roBand').textContent = band.name.toUpperCase();
+  $('#roBand').textContent = band.name;
   navLinks.forEach(a => a.classList.toggle('on', a.dataset.band === k));
 }), { rootMargin: '-45% 0px -45% 0px' });
 $$('section[data-band]').forEach(s => secObs.observe(s));
-$('#roBand').textContent = 'AWAKE';
+$('#roBand').textContent = 'awake';
+
+/* ---------- top bar ---------- */
+const topBar = $('#top');
+addEventListener('scroll', () => topBar.classList.toggle('stuck', scrollY > 30), { passive: true });
+$('#menuBtn').addEventListener('click', () => { const o = document.body.classList.toggle('menu'); $('#menuBtn').setAttribute('aria-expanded', o); });
+$$('#topnav a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu')));
 
 /* ---------- reveal on scroll ---------- */
 function initReveal() {
@@ -165,10 +160,10 @@ function initHero() {
   const build = async () => {
     try { await document.fonts.load('700 200px "Space Grotesk"'); } catch (e) {}
     W = sec.clientWidth; H = sec.clientHeight; ctx = sizeCanvas(cv, W, H);
-    const size = Math.min(W * .92 / 3.7, H * .42), step = Math.max(4, Math.round(size / 42));
+    const size = Math.min(W * .9 / 3.7, H * .33), step = Math.max(4, Math.round(size / 42));
     const off = document.createElement('canvas'); off.width = W; off.height = H;
     const o = off.getContext('2d'); o.fillStyle = '#fff'; o.font = `700 ${size}px "Space Grotesk",sans-serif`;
-    o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText('DARIN', W / 2, H * .47);
+    o.textAlign = 'center'; o.textBaseline = 'middle'; o.fillText('DARIN', W / 2, H * .34);
     const d = o.getImageData(0, 0, W, H).data, old = P; P = [];
     for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step)
       if (d[(y * W + x) * 4 + 3] > 128) {
@@ -210,8 +205,8 @@ function initHero() {
   };
   slider.addEventListener('input', apply); apply();
   // gentle demo sweep so people realise it's interactive
-  let hinted = false;
-  new IntersectionObserver(([e]) => { if (e.isIntersecting && !hinted && !reduced) { hinted = true; let s = 0; const id = setInterval(() => { s += 2; slider.value = Math.min(s, 30); apply(); if (s >= 30) clearInterval(id); }, 24); } }, { threshold: .6 }).observe(slider);
+  let hinted = false; // on first view: start noisy, then clean up on its own
+  new IntersectionObserver(([e]) => { if (e.isIntersecting && !hinted && !reduced) { hinted = true; let s = 0; slider.value = 0; apply(); const id = setInterval(() => { s += 1.4; slider.value = Math.min(s, 100); apply(); if (s >= 100) clearInterval(id); }, 22); } }, { threshold: .6 }).observe(slider);
   let t = 0;
   (function loop() {
     requestAnimationFrame(loop); if (!vis) return; t += .03;
@@ -246,8 +241,8 @@ $$('.card').forEach(c => {
   const core = { label: 'Darin', r: 26, x: 0, y: 0, vx: 0, vy: 0, core: true, col: [255, 255, 255], fixed: false };
   nodes.push(core);
   Object.entries(DATA.skills).forEach(([g, list], gi) => {
-    const hub = { label: g, r: 17, x: 0, y: 0, vx: 0, vy: 0, hub: true, col: hubCols[gi % 4] }; nodes.push(hub); links.push([core, hub, 120]);
-    list.forEach(s => { const n = { label: s, r: 10, x: 0, y: 0, vx: 0, vy: 0, col: hubCols[gi % 4] }; nodes.push(n); links.push([hub, n, 75]); });
+    const hub = { label: g, r: 30, x: 0, y: 0, vx: 0, vy: 0, hub: true, col: hubCols[gi % 4] }; nodes.push(hub); links.push([core, hub, 140]);
+    list.forEach(s => { const n = { label: s, r: 10, x: 0, y: 0, vx: 0, vy: 0, col: hubCols[gi % 4] }; nodes.push(n); links.push([hub, n, 90]); });
   });
   nodes.forEach((n, i) => { const a = i * 2.4; n.x = Math.cos(a) * (40 + i * 6) + 400; n.y = Math.sin(a) * (40 + i * 5) + 250; });
   const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
@@ -286,7 +281,7 @@ $$('.card').forEach(c => {
 (function terminal() {
   const term = $('#term'), out = $('#termOut'), inp = $('#termIn'), hist = []; let hi = 0;
   const print = (t, cls = '') => { const d = document.createElement('div'); if (cls) d.className = cls; d.innerHTML = t; out.appendChild(d); out.scrollTop = out.scrollHeight; };
-  const open = () => { term.hidden = false; requestAnimationFrame(() => term.classList.add('open')); setTimeout(() => inp.focus(), 50); if (!out.children.length) print("welcome. type <b>help</b> to see what I can do.", 'ok'); };
+  const open = () => { term.hidden = false; requestAnimationFrame(() => term.classList.add('open')); setTimeout(() => inp.focus(), 50); if (!out.children.length) print("you found the terminal. type <b>help</b>.", 'ok'); };
   const close = () => { term.classList.remove('open'); inp.blur(); };
   const toggle = () => term.classList.contains('open') ? close() : open();
   $('#termBtn').onclick = toggle; $('#termClose').onclick = close;
@@ -330,6 +325,6 @@ function burst() {
 }
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']; let ki = 0;
 addEventListener('keydown', e => { ki = (e.key.length === 1 ? e.key.toLowerCase() : e.key) === KONAMI[ki] ? ki + 1 : 0; if (ki === KONAMI.length) { ki = 0; burst(); } });
-boot();
+start();
 console.log('%c darin.dev ', 'background:#7CFFB2;color:#000;font-weight:bold', 'psst — try the terminal (`) or the konami code.');
 })();

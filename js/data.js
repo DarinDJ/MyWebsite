@@ -1,51 +1,62 @@
 /* ------------------------------------------------------------------
    EDIT ME — all the content on the site lives here.
-   Lines marked TODO are placeholders for you to fill in.
+   Anything marked TODO is a placeholder for you to fill in.
 ------------------------------------------------------------------- */
 const DATA = {
+  // typed under the hero name
   roles: [
     "student researcher @ KIST",
-    "M.S. student @ UST–KIST",
-    "turning noisy data into signal",
-    "22 and just getting started",
+    "M.S. candidate @ UST–KIST",
+    "machine learning & computer vision",
+    "data → insight → decisions",
   ],
 
-  // Revealed one by one as the "denoise" slider moves right.
+  // Revealed as the "denoise" slider moves towards signal.
   facts: [
-    "I'm 22, and I'd rather be building than waiting.",
-    "M.S. student at UST, based at KIST — since September 2026.",
-    "Student researcher at KIST, working where data meets real-world science.",
-    "Fluent in Python, C and Java. Dangerous with a Jupyter notebook.",
-    "I like finding the pattern hiding inside raw, messy data.",
+    "M.S. student at UST, working as a student researcher at KIST — Korea's flagship science institute.",
+    "I build machine-learning and computer-vision models, from customer churn to medical imaging.",
+    "I care whether a model is explainable and useful, not just accurate.",
+    "Comfortable across the stack: Python, SQL, Power BI — and enough web to ship my own tools.",
+    "Aiming for industry: applied data and AI roles where technical work drives real business outcomes.",
+  ],
+
+  principles: [
+    { n: "01", title: "Frame the problem", text: "Start from the decision the data should inform, not the model I happen to want to use." },
+    { n: "02", title: "Build, then stress-test", text: "Validate properly, explain the model, and know exactly where it breaks." },
+    { n: "03", title: "Make it land", text: "A result nobody understands changes nothing. I turn findings into clear stories and dashboards." },
   ],
 
   timeline: [
-    { when: "Earlier", title: "Data science & deep learning projects",
-      text: "Churn prediction with XGBoost, real-time emotion detection with CNNs, tumour classification with EfficientNet + Grad-CAM." },
-    { when: "Until Aug 2026", title: "Research Intern — KIST",
-      text: "Spent the internship inside one of Korea's flagship research institutes. Fell in love with the lab life." },
-    { when: "Sep 2026 →", title: "M.S. — UST–KIST School",
-      text: "Started my master's at the University of Science and Technology, through the KIST campus." },
-    { when: "Now", title: "Student Researcher — KIST",
-      text: "Doing research while doing the masters. TODO: add one line about your research topic here." },
+    { when: "Earlier", title: "Applied ML projects",
+      text: "Churn prediction with XGBoost, real-time emotion detection with CNNs, tumour classification with EfficientNet + Grad-CAM. TODO: add your undergraduate degree here." },
+    { when: "Until Aug 2026", title: "Research Intern · KIST",
+      text: "Internship at the Korea Institute of Science and Technology. TODO: add one concrete thing you built or learned." },
+    { when: "Sep 2026 →", title: "M.S. · UST–KIST School",
+      text: "Master's at the University of Science and Technology, based at KIST. TODO: add your programme / field." },
+    { when: "Now", title: "Student Researcher · KIST",
+      text: "Doing research alongside the master's. TODO: add one public-safe line on your research topic." },
   ],
 
   projects: [
-    { title: "Bank Customer Churn Prediction", tag: "ML · Python",
-      text: "Predictive model using scikit-learn and XGBoost to understand customer behaviour and flag churn early, so retention can be targeted with data.",
+    { title: "Bank Customer Churn Prediction", tag: "Machine learning",
+      text: "Predictive model that analyses customer behaviour to flag who is likely to leave, so retention efforts can be targeted with data instead of guesswork.",
+      stack: ["Python", "scikit-learn", "XGBoost"],
       link: "https://github.com/DarinDJ/Bank_Customer_Churn" },
-    { title: "Facial Recognition & Emotion Detection", tag: "Deep Learning · CV",
-      text: "CNN built with OpenCV, TensorFlow and Keras that recognises faces and reads emotion in real time.",
-      link: "https://github.com/DarinDJ" },               // TODO: link the exact repo
+    { title: "Facial Recognition & Emotion Detection", tag: "Computer vision",
+      text: "Convolutional neural network that recognises faces and reads emotion in real time from a live video feed.",
+      stack: ["OpenCV", "TensorFlow", "Keras"],
+      link: "https://github.com/DarinDJ" },                     // TODO: link the exact repo
     { title: "Brain Tumor Classification + Grad-CAM", tag: "Medical AI",
-      text: "EfficientNet classifier with Grad-CAM heatmaps so you can see where the model is looking, not just what it predicts.",
-      link: "https://github.com/DarinDJ" },               // TODO: link the exact repo
-    { title: "KIST Research", tag: "In progress",
-      text: "Current work at KIST. TODO: add a public-safe description (or keep the mystery).",
+      text: "EfficientNet classifier paired with Grad-CAM heatmaps, so you can see where the model is looking — not just what it predicts.",
+      stack: ["Python", "EfficientNet", "Grad-CAM"],
+      link: "https://github.com/DarinDJ" },                     // TODO: link the exact repo
+    { title: "Research at KIST", tag: "In progress",
+      text: "Current research work at KIST. TODO: add a public-safe description, or keep it short and let people ask.",
+      stack: [],
       link: "" },
   ],
 
-  // group: which hub the node clings to
+  // group -> skills (drives both the constellation and the list)
   skills: {
     "Languages": ["Python", "C", "Java", "JavaScript", "SQL"],
     "ML / AI":   ["TensorFlow", "Keras", "scikit-learn", "XGBoost", "OpenCV"],
@@ -54,10 +65,11 @@ const DATA = {
   },
 
   links: [
-    { label: "LinkedIn",  href: "https://www.linkedin.com/in/darin-davis-johnson/" },
+    { label: "LinkedIn",  href: "https://www.linkedin.com/in/darin-davis-johnson/", primary: true },
     { label: "GitHub",    href: "https://github.com/DarinDJ" },
     { label: "Instagram", href: "https://www.instagram.com/darin_john7" },
     // TODO: add { label: "Email", href: "mailto:you@example.com" }
-    { label: "Résumé",    href: "assets/Resume-old.pdf" }, // TODO: swap in an updated résumé
   ],
+
+  resume: "assets/Resume-old.pdf", // TODO: swap in an updated résumé
 };

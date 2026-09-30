@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Darin Davis Johnson — signal in the noise</title>
-  <meta name="description" content="Darin Davis Johnson — student researcher at KIST, M.S. student at UST. An interactive portfolio where the whole site is a brain wave.">
+  <title>Darin Davis Johnson — Data Science & AI</title>
+  <meta name="description" content="Darin Davis Johnson — M.S. student at UST and student researcher at KIST. Machine learning, computer vision and data storytelling.">
+  <meta property="og:title" content="Darin Davis Johnson — Data Science & AI">
+  <meta property="og:description" content="Student researcher at KIST. I turn messy data into decisions.">
+  <meta property="og:type" content="website">
   <meta name="theme-color" content="#06080c">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2306080c'/><path d='M2 17h6l3-9 5 18 4-14 2 5h8' fill='none' stroke='%237CFFB2' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,95 +17,101 @@
 </head>
 <body>
 
-<div id="boot" aria-hidden="true"><pre id="bootText"></pre><span class="skip">click or press any key to skip</span></div>
-
 <canvas id="bg" aria-hidden="true"></canvas>
 <div id="cur-dot" aria-hidden="true"></div><div id="cur-ring" aria-hidden="true"></div>
 
-<div id="readout" aria-hidden="true">
-  <span>CH <b id="roBand">—</b></span>
-  <span><b id="roHz">0.0</b> Hz</span>
-  <span>SEOUL <b id="roClock">--:--:--</b></span>
-</div>
-
-<nav id="dial" aria-label="Sections">
-  <a href="#hero" data-band="hero"><i>●</i><span>home</span></a>
-  <a href="#delta" data-band="delta"><i>δ</i><span>about</span></a>
-  <a href="#theta" data-band="theta"><i>θ</i><span>journey</span></a>
-  <a href="#alpha" data-band="alpha"><i>α</i><span>work</span></a>
-  <a href="#beta"  data-band="beta"><i>β</i><span>toolkit</span></a>
-  <a href="#gamma" data-band="gamma"><i>γ</i><span>say hi</span></a>
-</nav>
-
-<button id="termBtn" aria-label="Open terminal">›_ <span>terminal</span> <kbd>`</kbd></button>
+<header class="top" id="top">
+  <a class="logo" href="#hero" aria-label="Darin Davis Johnson — home">
+    <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M2 17h6l3-9 5 18 4-14 2 5h8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Darin D. Johnson</span>
+  </a>
+  <nav class="topnav" id="topnav" aria-label="Sections">
+    <a href="#delta" data-band="delta">About</a>
+    <a href="#theta" data-band="theta">Journey</a>
+    <a href="#alpha" data-band="alpha">Projects</a>
+    <a href="#beta"  data-band="beta">Skills</a>
+    <a href="#gamma" data-band="gamma">Contact</a>
+  </nav>
+  <div class="top-right">
+    <div id="readout" aria-hidden="true"><span><b id="roBand">—</b> <b id="roHz">0.0</b>Hz</span><span>Seoul <b id="roClock">--:--</b></span></div>
+    <a class="btn sm" id="resumeTop" href="#" target="_blank" rel="noopener">Résumé</a>
+    <button id="menuBtn" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
 
 <main>
   <!-- HERO -->
   <section id="hero" data-band="hero">
     <canvas id="heroCanvas" aria-label="Darin, made of particles that scatter away from your cursor" role="img"></canvas>
-    <div class="hero-top rv"><span class="dot"></span> hello, world — i'm</div>
+    <div class="hero-top rv"><span class="dot"></span> Hi, I'm</div>
     <div class="hero-bottom">
       <h1 class="sr">Darin Davis Johnson</h1>
-      <p class="sub">Darin Davis Johnson</p>
       <p class="roles"><span id="typed"></span><span class="caret">▍</span></p>
-      <p class="hint">move your cursor · the name is alive &nbsp;↓ scroll to tune in</p>
+      <p class="lead">Data science &amp; AI, in the making.<br>I turn messy data into decisions.</p>
+      <div class="cta">
+        <a class="btn primary" href="#alpha">See my work</a>
+        <a class="btn" id="resumeHero" href="#" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn" href="#gamma">Get in touch</a>
+      </div>
+      <p class="hint">move your cursor — the name is alive</p>
     </div>
   </section>
 
-  <!-- DELTA / ABOUT -->
+  <!-- ABOUT -->
   <section id="delta" data-band="delta">
     <div class="wrap">
-      <p class="eyebrow rv">δ delta · 0.5–4 Hz · the deep stuff</p>
-      <h2 class="rv">Most of me is <em>noise</em>.<br>Drag to find the signal.</h2>
+      <p class="eyebrow rv">About</p>
+      <h2 class="rv">I turn noisy data <em>into signal.</em></h2>
       <div class="denoise rv">
         <canvas id="noiseCanvas"></canvas>
         <label class="slider">
-          <span>noise</span>
-          <input id="denoise" type="range" min="0" max="100" value="0" aria-label="Denoise slider">
-          <span>signal</span>
+          <span>raw data</span>
+          <input id="denoise" type="range" min="0" max="100" value="100" aria-label="Denoise slider">
+          <span>insight</span>
         </label>
         <ul class="facts" id="facts"></ul>
       </div>
+      <div class="principles" id="principles"></div>
     </div>
   </section>
 
-  <!-- THETA / JOURNEY -->
+  <!-- JOURNEY -->
   <section id="theta" data-band="theta">
     <div class="wrap">
-      <p class="eyebrow rv">θ theta · 4–8 Hz · the path so far</p>
-      <h2 class="rv">Still early. <em>Moving fast.</em></h2>
+      <p class="eyebrow rv">Journey</p>
+      <h2 class="rv">Early in the story. <em>Moving fast.</em></h2>
       <ol class="timeline" id="timeline"></ol>
     </div>
   </section>
 
-  <!-- ALPHA / WORK -->
+  <!-- PROJECTS -->
   <section id="alpha" data-band="alpha">
     <div class="wrap">
-      <p class="eyebrow rv">α alpha · 8–13 Hz · focused work</p>
-      <h2 class="rv">Things I've <em>built</em>.</h2>
+      <p class="eyebrow rv">Projects</p>
+      <h2 class="rv">Things I've <em>built.</em></h2>
       <div class="cards" id="cards"></div>
     </div>
   </section>
 
-  <!-- BETA / TOOLKIT -->
+  <!-- SKILLS -->
   <section id="beta" data-band="beta">
     <div class="wrap">
-      <p class="eyebrow rv">β beta · 13–30 Hz · the toolkit</p>
-      <h2 class="rv">Grab a node. <em>Throw it.</em></h2>
-      <div class="graph rv"><canvas id="graphCanvas"></canvas><span class="graph-tip">drag the nodes · hover to light up connections</span></div>
+      <p class="eyebrow rv">Skills</p>
+      <h2 class="rv">My toolkit. <em>Give it a shove.</em></h2>
+      <div class="graph rv"><canvas id="graphCanvas"></canvas><span class="graph-tip">drag the nodes · hover to see connections</span></div>
+      <div class="skill-list rv" id="skillList"></div>
     </div>
   </section>
 
-  <!-- GAMMA / CONTACT -->
+  <!-- CONTACT -->
   <section id="gamma" data-band="gamma">
     <div class="wrap center">
-      <p class="eyebrow rv">γ gamma · 30+ Hz · peak signal</p>
-      <h2 class="big rv">Let's <em>connect.</em></h2>
-      <p class="lede rv">Research, collaborations, weird ideas, or just saying hi — I'm always open to a good signal.</p>
+      <p class="eyebrow rv">Contact</p>
+      <h2 class="big rv">Let's <em>talk.</em></h2>
+      <p class="lede rv">I'm looking ahead to applied data science and AI roles in industry. If you're hiring, building something interesting, or just want to compare notes — say hi.</p>
       <div class="links rv" id="links"></div>
-      <p class="fine rv">Psst — there's a terminal hidden in here. Press <kbd>`</kbd>. There's also a cheat code. You're 22-ish, you know the one.</p>
     </div>
-    <footer>© <span id="year"></span> Darin Davis Johnson · hand-built, no frameworks, all signal</footer>
+    <footer>© <span id="year"></span> Darin Davis Johnson · built by hand · <button id="termBtn" aria-label="Open terminal">psst, press <kbd>`</kbd></button></footer>
   </section>
 </main>
 
