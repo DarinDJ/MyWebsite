@@ -30,11 +30,11 @@ const DATA = {
     { when: "Earlier", title: "Applied ML projects",
       text: "Churn prediction with XGBoost, real-time emotion detection with CNNs, tumour classification with EfficientNet + Grad-CAM. TODO: add your undergraduate degree here." },
     { when: "Until Aug 2026", title: "Research Intern · KIST",
-      text: "Internship at the Korea Institute of Science and Technology. TODO: add one concrete thing you built or learned." },
-    { when: "Sep 2026 →", title: "M.S. · UST–KIST School",
-      text: "Master's at the University of Science and Technology, based at KIST. TODO: add your programme / field." },
+      text: "Internship at the Korea Institute of Science and Technology." },
+    { when: "Sep 2026 →", title: "M.S. AI and Robotics · UST–KIST School",
+      text: "Master's at the University of Science and Technology, based at KIST." },
     { when: "Now", title: "Student Researcher · KIST",
-      text: "Doing research alongside the master's. TODO: add one public-safe line on your research topic." },
+      text: "Doing research alongside the master's." },
   ],
 
   projects: [
