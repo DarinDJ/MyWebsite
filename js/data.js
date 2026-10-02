@@ -28,7 +28,9 @@ const DATA = {
   timeline: [
     { when: "2022 – 2026", title: "B.Tech · Christ University, Bengaluru",
       text: "Computer Science & Engineering with Data Science (GPA 3.7/4), plus software internships at Hindustan Aeronautics (HAL) and Microhard Services." },
-    { when: "May – Aug 2026", title: "Research Intern · KIST",
+    { when: "Dec 2025 – Feb 2026", title: "Research Intern · IKST, Bengaluru",
+      text: "Applied time-frequency analysis to large-scale EEG datasets and built end-to-end analysis and visualization workflows at the Indo-Korea Science and Technology Center." },
+    { when: "Mar – Aug 2026", title: "Research Intern · KIST",
       text: "Built Python tools for analysing neural oscillations in brain-recording data at the Korea Institute of Science and Technology." },
     { when: "Sep 2026 →", title: "M.S. AI and Robotics · UST–KIST School",
       text: "Master's in AI and Robotics at the University of Science and Technology, based at KIST in Seoul." },

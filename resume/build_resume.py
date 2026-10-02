@@ -28,13 +28,17 @@ CONTENT = [
  ("b", "Developing research software in Python to process, analyze and visualize mouse neural-recording and behavioral data, "
        "turning experimental data into reproducible analysis pipelines."),
  ("b", "Applying AI and machine-learning methods to mouse neuroscience data as part of the M.S. in AI and Robotics."),
- ("role", "Research Intern", "May 2026 – August 2026"),
+ ("role", "Research Intern", "March 2026 – August 2026"),
  ("b", "Built an end-to-end Python pipeline (PSD, artifact masking, Hilbert-envelope burst detection) to analyze LFP/EEG "
        "recordings from the mPFC and basolateral amygdala in a mouse threat–escape experiment."),
- ("b", "Detected and visually validated theta, beta and gamma bursts, then compared burst features across four 60-second "
-       "experimental conditions using statistical analysis (SciPy, statsmodels)."),
- ("b", "Aligned neural bursts with tracked mouse and spider-robot behavior and analyzed beta–gamma–theta cross-frequency "
-       "coupling to link brain dynamics to threat-driven behavior."),
+ ("b", "Detected, validated and statistically compared theta, beta and gamma bursts across experimental conditions, "
+       "then aligned them with mouse and spider-robot behavior to study cross-frequency coupling."),
+ ("org",  "INDO-KOREA SCIENCE AND TECHNOLOGY CENTER (IKST)", "Bengaluru, India"),
+ ("role", "Research Intern", "December 2025 - February 2026"),
+ ("b", "Applied frequency and time-frequency analysis techniques to extract neural signatures from large-scale EEG datasets."),
+ ("b", "Investigated oscillatory brain activity to identify correlations between neural signal power and behavioral movement dynamics."),
+ ("b", "Engineered end-to-end Python workflows for data analysis and visualization, streamlining the processing and "
+       "interpretation of neural recordings."),
  ("org",  "MICROHARD SERVICES PVT LTD.", "Bengaluru, India"),
  ("role", "Software Engineering Intern", "May 2025 - June 2025"),
  ("b", "Built backend logic in Python and SQL for an internal Asset Tracking Application, enabling real-time updates "
@@ -43,12 +47,10 @@ CONTENT = [
        "components and design."),
  ("org",  "HINDUSTAN AERONAUTICS LIMITED (HAL)", "Bengaluru, India"),
  ("role", "Software Engineering Intern", "April 2024 - May 2024"),
- ("b", "Developed a mission-critical Java application (Eclipse IDE) for helicopter pilots, delivering real-time data "
-       "visualization and seamless system communication."),
- ("b", "Engineered a secure LAN-based interface to receive and display real-time operational data from an external "
-       "system, adhering to strict security protocols."),
- ("b", "Optimized data handling and UI responsiveness, reducing latency by 30%."),
- ("b", "Delivered 80% of the assigned scope within one month of a two-month timeline, accelerating completion by 50%."),
+ ("b", "Developed a mission-critical Java application (Eclipse IDE) for helicopter pilots with real-time data visualization."),
+ ("b", "Engineered a secure LAN-based interface to receive and display real-time operational data under strict security protocols."),
+ ("b", "Optimized data handling and UI responsiveness, cutting latency by 30%; delivered 80% of the scope in one month of a "
+       "two-month timeline."),
 
  ("section", "EDUCATION"),
  ("org",  "UNIVERSITY OF SCIENCE AND TECHNOLOGY (UST) – KIST SCHOOL", "Seoul, South Korea"),
@@ -60,15 +62,13 @@ CONTENT = [
 
  ("section", "CERTIFICATIONS AND PROJECTS"),
  ("org",  "BANK CUSTOMER CHURN PREDICTION", "March 2024", "date"),
- ("b", "Compared six classifiers (logistic regression, SVM, KNN, decision tree, random forest, gradient boosting) on "
-       "10,000 customer records to predict churn, handling class imbalance with resampling; random forest performed best."),
- ("b", "Evaluated with accuracy, precision, recall and F1, and wrapped the model in a Tkinter app for interactive predictions."),
+ ("b", "Compared six classifiers (logistic regression, SVM, KNN, decision tree, random forest, gradient boosting) on 10,000 "
+       "customer records to predict churn, handling class imbalance; wrapped the best model (random forest) in a Tkinter app."),
  ("org",  "FACIAL RECOGNITION & EMOTION DETECTION", "September 2024", "date"),
  ("b", "Built a CNN-based deep-learning system (OpenCV, TensorFlow, Keras) that detects faces and classifies emotions in real time."),
  ("org",  "KERALEEYAM ASSOCIATION WEBSITE", "February 2025", "date"),
- ("b", "Built and deployed a full-stack website (React.js, TypeScript, Supabase) for 50+ association members; live at keraleeyam.vercel.app."),
- ("b", "Automated database integration for dynamic content and user interactions, cutting manual effort by 60%; "
-       "collaborated in a team of 5 with 100% on-time deployment."),
+ ("b", "Built and deployed a full-stack site (React.js, TypeScript, Supabase) for 50+ members at keraleeyam.vercel.app; automated "
+       "database integration cut manual effort by 60%, with 100% on-time delivery in a team of 5."),
  ("org",  "BRITISH AIRWAYS DATA SCIENCE VIRTUAL EXPERIENCE – FORAGE", "July 2023", "date"),
  ("b", "Scraped and analyzed airline customer data (Python, BeautifulSoup) and built a logistic-regression model forecasting "
        "buying behavior with ~90% accuracy; visualized booking trends with Matplotlib."),
@@ -78,7 +78,7 @@ CONTENT = [
  ("section", "SKILLS"),
  ("skill", "Languages", "Python, Java, JavaScript, TypeScript, SQL"),
  ("skill", "ML & Data", "scikit-learn, TensorFlow, Keras, OpenCV, NumPy, pandas, SciPy, statsmodels, Matplotlib, Power BI"),
- ("skill", "Neuro & Signals", "MNE-Python, power spectral density, Hilbert transform, burst detection, cross-frequency coupling"),
+ ("skill", "Neuro & Signals", "MNE-Python, EEG/LFP analysis, time-frequency analysis, burst detection, cross-frequency coupling"),
  ("skill", "Tools", "Git, REST APIs, React.js, Supabase, MySQL, Jupyter, Raspberry Pi"),
 ]
 
