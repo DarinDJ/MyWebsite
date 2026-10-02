@@ -33,7 +33,7 @@ const DATA = {
     { when: "Sep 2026 →", title: "M.S. AI and Robotics · UST–KIST School",
       text: "Master's in AI and Robotics at the University of Science and Technology, based at KIST in Seoul." },
     { when: "Now", title: "Student Researcher · KIST",
-      text: "Doing research at KIST alongside the master's, with a focus on signal analysis." },
+      text: "Building research software and applying AI to mouse neuroscience data at KIST, alongside the master's." },
   ],
 
   projects: [
@@ -71,5 +71,5 @@ const DATA = {
     { label: "Email",     href: "mailto:darinjohn23@gmail.com" },
   ],
 
-  resume: "assets/Resume-old.pdf", // switch to assets/Resume.pdf once the new résumé is final
+  resume: "assets/Resume.pdf",
 };
