@@ -236,13 +236,13 @@ $$('.card').forEach(c => {
   const size = () => { W = cv.clientWidth; H = cv.clientHeight; ctx = sizeCanvas(cv, W, H); };
   size(); addEventListener('resize', size);
   new IntersectionObserver(e => vis = e[0].isIntersecting).observe(cv);
-  const hubCols = [[129, 140, 248], [56, 189, 248], [74, 222, 128], [244, 114, 182]];
+  const hubCols = [[129, 140, 248], [56, 189, 248], [248, 113, 113], [74, 222, 128], [244, 114, 182]];
   const nodes = [], links = [];
   const core = { label: 'Darin', r: 26, x: 0, y: 0, vx: 0, vy: 0, core: true, col: [255, 255, 255], fixed: false };
   nodes.push(core);
   Object.entries(DATA.skills).forEach(([g, list], gi) => {
-    const hub = { label: g, r: 30, x: 0, y: 0, vx: 0, vy: 0, hub: true, col: hubCols[gi % 4] }; nodes.push(hub); links.push([core, hub, 140]);
-    list.forEach(s => { const n = { label: s, r: 10, x: 0, y: 0, vx: 0, vy: 0, col: hubCols[gi % 4] }; nodes.push(n); links.push([hub, n, 90]); });
+    const hub = { label: g, r: 30, x: 0, y: 0, vx: 0, vy: 0, hub: true, col: hubCols[gi % 5] }; nodes.push(hub); links.push([core, hub, 140]);
+    list.forEach(s => { const n = { label: s, r: 10, x: 0, y: 0, vx: 0, vy: 0, col: hubCols[gi % 5] }; nodes.push(n); links.push([hub, n, 90]); });
   });
   nodes.forEach((n, i) => { const a = i * 2.4; n.x = Math.cos(a) * (40 + i * 6) + 400; n.y = Math.sin(a) * (40 + i * 5) + 250; });
   const pos = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
