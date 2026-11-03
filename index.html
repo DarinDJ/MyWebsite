@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Darin Davis Johnson | AI, data and robotics</title>
-<meta name="description" content="Darin Davis Johnson is a student researcher at KIST in Seoul and an M.S. student in AI and Robotics at UST. He builds machine learning and data tools.">
+<title>Darin Davis Johnson | Machine learning and data</title>
+<meta name="description" content="Darin Davis Johnson is a student researcher at KIST in Seoul and an M.S. student in AI and Robotics at UST. He builds machine learning and data tools, and is aiming for applied ML and data roles.">
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 <div class="dot" id="dot" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="wordmark" href="#top">Darin<span>.</span></a>
+  <a class="wordmark" href="#top"><span class="mark mark-s" data-mark aria-hidden="true"></span>Darin Johnson</a>
   <nav aria-label="Sections">
     <a href="#top">Home</a>
     <a href="#work">Projects</a>
@@ -32,17 +32,19 @@
     <h1 class="hero-h"><span class="mask"><span class="rise" style="--i:0">I build ML and data</span></span><span class="mask"><span class="rise" style="--i:1">tools in Seoul.</span></span></h1>
     <svg class="badge" viewBox="0 0 120 120" aria-hidden="true">
       <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
-      <text><textPath href="#circ">Scroll down · meet the neurons · </textPath></text>
+      <text><textPath href="#circ">Scroll down · see the work · </textPath></text>
       <path class="arrow" d="M60 44v30m-9-9 9 9 9-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="hero-meta reveal" style="--i:3">
-      <p class="who">M.S. student in AI and Robotics at UST. Student researcher at KIST, Seoul.</p>
-      <p class="tags">Machine learning / Data / Signal analysis / Robotics</p>
+      <p class="who">Machine learning and data science. M.S. in AI and Robotics at UST, student researcher at KIST, Seoul.</p>
+      <p class="tags">Machine learning / Data science / Software / Robotics</p>
       <a class="pill pill-fill" id="heroResume" href="assets/Resume.pdf">Download résumé</a>
     </div>
     <figure class="hero-panel reveal" style="--i:4" id="panel">
-      <img class="ink" src="assets/img/cajal-purkinje.jpg" width="611" height="715" alt="Ink drawing of two Purkinje neurons with dense branching dendrites, by Santiago Ramón y Cajal">
-      <figcaption>Purkinje cells, drawn by Santiago Ramón y Cajal.</figcaption>
+      <img class="ink" src="assets/img/cajal-purkinje.jpg" width="611" height="715" alt="" role="presentation">
+      <canvas id="net" aria-label="Interactive 3D neural network. Move the cursor to turn it."></canvas>
+      <span class="glass chip">M.S. in AI and Robotics · KIST, Seoul</span>
+      <figcaption>Behind the network: Purkinje cells, drawn by Santiago Ramón y Cajal.</figcaption>
     </figure>
   </section>
 
@@ -67,12 +69,8 @@
     <div class="wrap dark-in">
       <div class="dark-text">
         <h2 id="resTitle" class="h-sec reveal">Research</h2>
-        <p class="big reveal">At KIST I build research software and use AI on mouse neuroscience data. It began with EEG at IKST in Bengaluru, and the master's adds robotics.</p>
-        <p class="small reveal">After that I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
-        <figure class="eeg reveal">
-          <img src="assets/img/berger-first-eeg.png" width="916" height="123" alt="Hans Berger's first human EEG recording, 1924" loading="lazy">
-          <figcaption>The first human EEG, Hans Berger, 1924.</figcaption>
-        </figure>
+        <p class="big reveal">At KIST I build research software and use AI on mouse neuroscience data. It is a good place to learn how messy real signals are, and how carefully a model has to be checked.</p>
+        <p class="small reveal">Next I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
       </div>
       <figure class="orb reveal" aria-label="Cajal's drawing of neurons in the hippocampus">
         <img src="assets/img/cajal-hippocampus.jpg" width="687" height="1280" alt="Cajal's ink drawing of neurons in the hippocampus" loading="lazy">
@@ -87,6 +85,7 @@
 
   <section class="contact" id="contact" aria-labelledby="contactTitle">
     <div class="wrap">
+      <span class="mark mark-l" data-mark aria-hidden="true"></span>
       <h2 id="contactTitle" class="contact-h reveal">Let’s build something together.</h2>
       <p class="reveal">Open to research collaborations now, and to applied data and AI roles after the master's.</p>
       <a class="pill pill-fill big-pill reveal" id="mail" href="#"></a>
@@ -96,7 +95,7 @@
 </main>
 
 <footer class="foot wrap">
-  <p>Drawings by Santiago Ramón y Cajal and the 1924 EEG by Hans Berger, all public domain via Wikimedia Commons.</p>
+  <p>Drawings by Santiago Ramón y Cajal, public domain via Wikimedia Commons. 3D with three.js, liquid-metal shader by Paper Design.</p>
   <p>Built by hand: plain HTML, CSS and JavaScript.</p>
 </footer>
 
@@ -104,5 +103,6 @@
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
+<script type="module" src="js/fx.js"></script>
 </body>
 </html>

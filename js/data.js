@@ -30,8 +30,8 @@ const DATA = {
   toolkit: {
     "Languages": ["Python", "Java", "JavaScript", "TypeScript", "SQL"],
     "Machine learning": ["scikit-learn", "TensorFlow", "Keras", "OpenCV"],
-    "Signals": ["MNE-Python", "SciPy", "statsmodels"],
     "Data": ["pandas", "Power BI", "MySQL", "Jupyter"],
+    "Signals": ["MNE-Python", "SciPy", "statsmodels"],
     "Web": ["React", "Node.js", "Supabase"],
   },
 
