@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Darin Davis Johnson | Machine learning and signal analysis</title>
-<meta name="description" content="Darin Davis Johnson is a student researcher at KIST in Seoul and an M.S. student in AI and Robotics at UST. He builds machine learning and signal analysis for brain data and business data.">
-<meta name="theme-color" content="#eef0f3">
+<title>Darin Davis Johnson | AI, data and robotics</title>
+<meta name="description" content="Darin Davis Johnson is a student researcher at KIST in Seoul and an M.S. student in AI and Robotics at UST. He builds machine learning and data tools.">
+<meta name="theme-color" content="#0b0b0c">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -27,51 +27,38 @@
 </header>
 
 <main id="top">
-  <section class="hero wrap">
-    <div class="hero-text">
+  <section class="hero" id="hero">
+    <div class="art" aria-hidden="true">
+      <div class="art-dim"></div>
+      <div class="art-lit"></div>
+    </div>
+    <div class="hero-in">
       <h1 class="display"><span class="mask"><span class="rise" style="--i:0">Darin Davis</span></span><span class="mask"><span class="rise" style="--i:1">Johnson</span></span></h1>
-      <p class="lead reveal" style="--i:3">Student researcher at KIST in Seoul. I build machine learning and signal analysis for brain data, and for the business questions that sit next to it.</p>
-      <div class="actions reveal" style="--i:4">
-        <a class="btn" id="heroResume" href="assets/Resume.pdf">Download résumé</a>
-        <a class="textlink" href="#contact">Get in touch</a>
+      <div class="hero-foot reveal" style="--i:3">
+        <p class="lead">Machine learning, data and robotics. Student researcher at KIST in Seoul.</p>
+        <div class="actions">
+          <a class="btn" id="heroResume" href="assets/Resume.pdf">Download résumé</a>
+          <a class="textlink" href="#work">See projects</a>
+        </div>
       </div>
     </div>
-    <figure class="hero-fig reveal" style="--i:2">
-      <img src="assets/img/cajal-purkinje.jpg" width="611" height="715" alt="Ink drawing of two Purkinje neurons with dense branching dendrites, by Santiago Ramón y Cajal">
-      <figcaption>Two Purkinje cells, drawn by Santiago Ramón y Cajal. The kind of picture that makes you want to understand brains.</figcaption>
-    </figure>
-  </section>
-
-  <section class="lab wrap reveal" aria-labelledby="labTitle">
-    <div class="lab-panel">
-      <div class="lab-head">
-        <h2 id="labTitle" class="h-section">Find the bursts</h2>
-        <p class="lab-copy">Brain rhythms arrive in short bursts. This is a synthetic trace, and the detector is the same idea I use on real recordings: filter, take the envelope, then threshold. Drag the threshold and watch what gets caught.</p>
-      </div>
-      <canvas id="trace" aria-label="Live synthetic brain-signal trace with detected bursts highlighted" role="img"></canvas>
-      <div class="lab-controls">
-        <label for="thr">Threshold</label>
-        <input id="thr" type="range" min="0.05" max="1" step="0.01" value="0.42">
-        <output id="count" aria-live="polite">0 bursts</output>
-      </div>
-    </div>
+    <p class="hero-cap reveal" style="--i:5">Purkinje cells, drawn by Santiago Ramón y Cajal. Move your cursor.</p>
   </section>
 
   <section class="section wrap" id="work" aria-labelledby="workTitle">
-    <h2 id="workTitle" class="h-section reveal">Projects</h2>
-    <ul class="rows" id="projects"></ul>
+    <h2 id="workTitle" class="display h-big reveal">Projects</h2>
+    <ul class="posters" id="projects"></ul>
   </section>
 
-  <section class="section wrap research" id="research" aria-labelledby="resTitle">
-    <figure class="res-fig reveal">
-      <img src="assets/img/cajal-hippocampus.jpg" width="687" height="1280" alt="Cajal's ink drawing of neurons in the hippocampus" loading="lazy">
-      <figcaption>Neurons of the hippocampus, also by Cajal.</figcaption>
-    </figure>
-    <div class="res-text">
-      <h2 id="resTitle" class="h-section reveal">Research</h2>
-      <p class="reveal">At KIST I build the software that lets neuroscientists ask questions of their data, and use AI on mouse recordings to find structure that is hard to see by eye.</p>
-      <p class="reveal">The work started with EEG: time-frequency analysis on large datasets, then end-to-end pipelines that take a raw recording to a figure someone can argue about. Next is robotics, in the master's.</p>
-      <p class="reveal">Longer term I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
+  <section class="section research" id="research" aria-labelledby="resTitle">
+    <div class="res-art" aria-hidden="true"></div>
+    <div class="wrap res-in">
+      <h2 id="resTitle" class="display h-big reveal">Research</h2>
+      <div class="res-copy">
+        <p class="reveal">At KIST I build research software and use AI on mouse neuroscience data, working alongside the people who run the experiments.</p>
+        <p class="reveal">It began with EEG at IKST in Bengaluru: time-frequency analysis on large datasets and pipelines that take a raw recording to a figure someone can discuss. The master's adds robotics.</p>
+        <p class="reveal">After that I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
+      </div>
       <figure class="eeg reveal">
         <img src="assets/img/berger-first-eeg.png" width="916" height="123" alt="Hans Berger's first human EEG recording, 1924" loading="lazy">
         <figcaption>The first human EEG, Hans Berger, 1924.</figcaption>
@@ -79,13 +66,15 @@
     </div>
   </section>
 
-  <section class="section wrap" id="path" aria-labelledby="pathTitle">
-    <h2 id="pathTitle" class="h-section reveal">Path</h2>
-    <ol class="rows path" id="pathList"></ol>
+  <section class="path" id="path" aria-labelledby="pathTitle">
+    <div class="path-stick">
+      <div class="wrap"><h2 id="pathTitle" class="display h-big">Path</h2></div>
+      <div class="strip" id="strip"><ol class="track" id="pathList"></ol></div>
+    </div>
   </section>
 
   <section class="section wrap" id="toolkit" aria-labelledby="toolTitle">
-    <h2 id="toolTitle" class="h-section reveal">Toolkit</h2>
+    <h2 id="toolTitle" class="display h-big reveal">Toolkit</h2>
     <div class="tools" id="tools"></div>
   </section>
 
