@@ -5,84 +5,91 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Darin Davis Johnson | AI, data and robotics</title>
 <meta name="description" content="Darin Davis Johnson is a student researcher at KIST in Seoul and an M.S. student in AI and Robotics at UST. He builds machine learning and data tools.">
-<meta name="theme-color" content="#0b0b0c">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wght@12..96,400..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <a class="skip" href="#work">Skip to projects</a>
+<div class="dot" id="dot" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="wordmark" href="#top">Darin Johnson</a>
+  <a class="wordmark" href="#top">Darin<span>.</span></a>
   <nav aria-label="Sections">
+    <a href="#top">Home</a>
     <a href="#work">Projects</a>
     <a href="#research">Research</a>
     <a href="#path">Path</a>
     <a href="#toolkit">Toolkit</a>
-    <a href="#contact">Contact</a>
   </nav>
-  <a class="btn btn-small" id="navResume" href="assets/Resume.pdf">Résumé</a>
+  <a class="pill" href="#contact"><i class="live"></i>Let’s talk</a>
 </header>
 
 <main id="top">
-  <section class="hero" id="hero">
-    <div class="art" aria-hidden="true">
-      <div class="art-dim"></div>
-      <div class="art-lit"></div>
+  <section class="hero wrap">
+    <h1 class="hero-h"><span class="mask"><span class="rise" style="--i:0">I build ML and data</span></span><span class="mask"><span class="rise" style="--i:1">tools in Seoul.</span></span></h1>
+    <svg class="badge" viewBox="0 0 120 120" aria-hidden="true">
+      <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+      <text><textPath href="#circ">Scroll down · meet the neurons · </textPath></text>
+      <path class="arrow" d="M60 44v30m-9-9 9 9 9-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="hero-meta reveal" style="--i:3">
+      <p class="who">M.S. student in AI and Robotics at UST. Student researcher at KIST, Seoul.</p>
+      <p class="tags">Machine learning / Data / Signal analysis / Robotics</p>
+      <a class="pill pill-fill" id="heroResume" href="assets/Resume.pdf">Download résumé</a>
     </div>
-    <div class="hero-in">
-      <h1 class="display"><span class="mask"><span class="rise" style="--i:0">Darin Davis</span></span><span class="mask"><span class="rise" style="--i:1">Johnson</span></span></h1>
-      <div class="hero-foot reveal" style="--i:3">
-        <p class="lead">Machine learning, data and robotics. Student researcher at KIST in Seoul.</p>
-        <div class="actions">
-          <a class="btn" id="heroResume" href="assets/Resume.pdf">Download résumé</a>
-          <a class="textlink" href="#work">See projects</a>
-        </div>
-      </div>
-    </div>
-    <p class="hero-cap reveal" style="--i:5">Purkinje cells, drawn by Santiago Ramón y Cajal. Move your cursor.</p>
+    <figure class="hero-panel reveal" style="--i:4" id="panel">
+      <img class="ink" src="assets/img/cajal-purkinje.jpg" width="611" height="715" alt="Ink drawing of two Purkinje neurons with dense branching dendrites, by Santiago Ramón y Cajal">
+      <figcaption>Purkinje cells, drawn by Santiago Ramón y Cajal.</figcaption>
+    </figure>
   </section>
 
-  <section class="section wrap" id="work" aria-labelledby="workTitle">
-    <h2 id="workTitle" class="display h-big reveal">Projects</h2>
-    <ul class="posters" id="projects"></ul>
+  <section class="hscroll" id="work" aria-labelledby="workTitle">
+    <div class="hstick">
+      <ul class="htrack" id="projects">
+        <li class="hintro"><h2 id="workTitle">What have I built?</h2><p>Three projects, from a bank model to a live video classifier.</p></li>
+      </ul>
+    </div>
   </section>
 
-  <section class="section research" id="research" aria-labelledby="resTitle">
-    <div class="res-art" aria-hidden="true"></div>
-    <div class="wrap res-in">
-      <h2 id="resTitle" class="display h-big reveal">Research</h2>
-      <div class="res-copy">
-        <p class="reveal">At KIST I build research software and use AI on mouse neuroscience data, working alongside the people who run the experiments.</p>
-        <p class="reveal">It began with EEG at IKST in Bengaluru: time-frequency analysis on large datasets and pipelines that take a raw recording to a figure someone can discuss. The master's adds robotics.</p>
-        <p class="reveal">After that I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
+  <section class="statement" aria-label="What I care about">
+    <p class="sweep" id="sweep">I care whether a model is useful and explainable, not just accurate. A result nobody understands changes nothing.</p>
+  </section>
+
+  <section class="stackwrap wrap" id="path" aria-labelledby="pathTitle">
+    <h2 id="pathTitle" class="h-sec reveal">Path</h2>
+    <ol class="stack" id="pathList"></ol>
+  </section>
+
+  <section class="dark" id="research" aria-labelledby="resTitle">
+    <div class="wrap dark-in">
+      <div class="dark-text">
+        <h2 id="resTitle" class="h-sec reveal">Research</h2>
+        <p class="big reveal">At KIST I build research software and use AI on mouse neuroscience data. It began with EEG at IKST in Bengaluru, and the master's adds robotics.</p>
+        <p class="small reveal">After that I want to take these methods into industry, where a model has to earn its place by changing a decision.</p>
+        <figure class="eeg reveal">
+          <img src="assets/img/berger-first-eeg.png" width="916" height="123" alt="Hans Berger's first human EEG recording, 1924" loading="lazy">
+          <figcaption>The first human EEG, Hans Berger, 1924.</figcaption>
+        </figure>
       </div>
-      <figure class="eeg reveal">
-        <img src="assets/img/berger-first-eeg.png" width="916" height="123" alt="Hans Berger's first human EEG recording, 1924" loading="lazy">
-        <figcaption>The first human EEG, Hans Berger, 1924.</figcaption>
+      <figure class="orb reveal" aria-label="Cajal's drawing of neurons in the hippocampus">
+        <img src="assets/img/cajal-hippocampus.jpg" width="687" height="1280" alt="Cajal's ink drawing of neurons in the hippocampus" loading="lazy">
       </figure>
     </div>
   </section>
 
-  <section class="path" id="path" aria-labelledby="pathTitle">
-    <div class="path-stick">
-      <div class="wrap"><h2 id="pathTitle" class="display h-big">Path</h2></div>
-      <div class="strip" id="strip"><ol class="track" id="pathList"></ol></div>
-    </div>
-  </section>
-
-  <section class="section wrap" id="toolkit" aria-labelledby="toolTitle">
-    <h2 id="toolTitle" class="display h-big reveal">Toolkit</h2>
-    <div class="tools" id="tools"></div>
+  <section class="tools wrap" id="toolkit" aria-labelledby="toolTitle">
+    <h2 id="toolTitle" class="h-sec reveal">Toolkit</h2>
+    <ul class="lines" id="tools"></ul>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contactTitle">
     <div class="wrap">
-      <h2 id="contactTitle" class="display contact-h reveal">Let’s talk</h2>
-      <p class="lead reveal">Open to research collaborations now, and to applied data and AI roles after the master's.</p>
-      <a class="mail reveal" id="mail" href="#"></a>
+      <h2 id="contactTitle" class="contact-h reveal">Let’s build something together.</h2>
+      <p class="reveal">Open to research collaborations now, and to applied data and AI roles after the master's.</p>
+      <a class="pill pill-fill big-pill reveal" id="mail" href="#"></a>
       <ul class="social reveal" id="social"></ul>
     </div>
   </section>
@@ -92,6 +99,8 @@
   <p>Drawings by Santiago Ramón y Cajal and the 1924 EEG by Hans Berger, all public domain via Wikimedia Commons.</p>
   <p>Built by hand: plain HTML, CSS and JavaScript.</p>
 </footer>
+
+<a class="float" id="floatMail" href="#">Email me</a>
 
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
